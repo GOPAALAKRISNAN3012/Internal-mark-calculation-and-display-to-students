@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Signup</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #222;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #0ff;
+    }
+
+    .container {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .form-container {
+        margin-bottom: 20px;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: none;
+        background-color: #444;
+        color: #fff;
+    }
+
+    .form-container input[type="text"]:focus,
+    .form-container input[type="password"]:focus {
+        outline: none;
+    }
+
+    .form-container button {
+        padding: 8px;
+        border: none;
+        background-color: #444;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .form-container button:hover {
+        background-color: #0ff;
+    }
+
+    .form-container h3 {
+        color: #0ff;
+        margin-bottom: 10px;
+    }
+
+    #signupForm {
+        display: none;
+    }
+
+    .toggle-link {
+        color: #0ff;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container" id="loginForm">
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <input type="text" name="staffUserID" placeholder="Staff User ID" required><br>
+            <input type="password" name="staffPassword" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p class="toggle-link" onclick="toggleForm('signupForm')">Don't have an account? Sign up here.</p>
+        <a href="st.html">Student</a>
+    </div>
+
+    <div class="form-container" id="signupForm">
+      <h2>Sign Up</h2>
+      <form action="signup.php" method="post">
+          <input type="text" name="staffUserID" placeholder="Staff User ID" required><br>
+          <input type="password" name="staffPassword" placeholder="Password" required><br>
+          <button type="submit" name="signup">Sign Up</button>
+      </form>
+      <p class="toggle-link" onclick="toggleForm('loginForm')">Already have an account? Log in here.</p>
+      
+  </div>
+  
+</div>
+
+<script>
+function toggleForm(formId) {
+    var loginForm = document.getElementById('loginForm');
+    var signupForm = document.getElementById('signupForm');
+
+    if (formId === 'signupForm') {
+        signupForm.style.display = 'block';
+        loginForm.style.display = 'none';
+    } else {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+    }
+}
+</script>
+
+</body>
+</html>
